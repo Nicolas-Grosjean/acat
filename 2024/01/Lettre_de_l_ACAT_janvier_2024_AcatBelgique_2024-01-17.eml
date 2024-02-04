@@ -1,0 +1,1560 @@
+Received: from 127.0.0.1
+ by atlas-production.v2-mail-prod1-gq1.omega.yahoo.com pod-id atlas--production-gq1-64c76765db-bdrrt.gq1.yahoo.com with HTTP; Wed, 17 Jan 2024 13:20:43 +0000
+Return-Path: <acat.belgique@gmail.com>
+X-Originating-Ip: [209.85.161.44]
+Received-SPF: pass (domain of gmail.com designates 209.85.161.44 as permitted sender)
+Authentication-Results: atlas-production.v2-mail-prod1-gq1.omega.yahoo.com;
+ dkim=pass header.i=@gmail.com header.s=20230601;
+ spf=pass smtp.mailfrom=gmail.com;
+ dmarc=pass(p=NONE,sp=QUARANTINE) header.from=gmail.com;
+X-Apparently-To: nicolas.grosjean@rocketmail.com; Wed, 17 Jan 2024 13:20:43 +0000
+X-YMailISG: TNH8wGkWLDsX4npFXxVSUqbh.IbMMzCw5jHafjQfljFNxyNP
+ SGs.6uWJW2KLfupUWkKe5jJ7FOGEk68zgPJNwsBLTnoVxqbTXiInsIgobpGN
+ ybnK1jsJnzJ7Ww7g8_XrZuDDg98kMWSCkkZzqXNityWvIS4DslrjAnWct8Oo
+ hTj_XGzm5FmRAaXzTlvbNngtFKVWf9mwZqWXDi.cXFwsk0mRBvDEfK.1MrS4
+ AcwlaDx8IQYVJZmfhpgEJYc0.Qps1wHBZS0aQRCtru15BJ5GFGyR9SMS8PIT
+ 7goIMJHBWff96BcbXBKAIvH74b6TwdsQmBJIJcE1sDmdbeQziQjq2jDTVXGf
+ Oz.leqxobuIfOMF0MFwb0bUTQhTS1Q6l9qL.d128_xg7mQTuXw86x6lJFX1k
+ .vDvH1JD6BTsEwOUNbmuH1OC1atGkck5bldkNnJXDkRl2lK2eBecjeZsubs1
+ 1i6GN1ZZgwZZItV4AdyLGGsyS8QDO7cV9yLuGkuYYXh12MFSTPE2kB4VBc3r
+ P9Hnh8SZbu.3Pv2n7WhxLYBDCkKH2s9emU0uY7RuLIlEYAPtYh8PEWDx03GV
+ bENMT.ds.umznq4fobmMdrc.Mkxu9M1YpsRmwNV_cW5zml4Le2lgEAFzWg_S
+ MMkeE279ir8_8EAp.Xn15HgsuoPwPECF3119dsFwcpj_EyW_ubDSBU5AjrA_
+ Vu4Ozdlzp1LPkZc51MgN27HMS_Bb1GeOcgkft8jjHKi0QdIexIkAVeq.Rbw.
+ kkpha9kBP7YMcpEEL78ObNojW3Ar9BgmQJndqeBetYqcHPQC3v48IiQjt5Dq
+ T.QiZYvyxPHrRydEUKF.Y.4IpbBFwA4aK8OXwLef72WsiJX_7NsbIiWaU0X4
+ hl5BEIVC9PcqQht._n9t3WBqJJIGAPLwsWfetxHFnJiv93XaLq9mzWrcruxu
+ 1XiJFYt1WLLovFZn9T1GZ_JoWVceQX1lzVvGTJNkoqz4UHNwfux0H408Tq11
+ lIe7wTiAsmbXMXKMdpF1fd9AI0hfAQKQ7nsYWZyy15BgwnwkL1LG7geZJ8dr
+ 1L.WL.9GHXe.Z51k6mS_E1oaBQ4inNcqlTEqe4gTdlp5aa7RifaUUQx._6UH
+ YJCErGBcM0_3qEucuqgAaivWZ8_aisRZNn92K8G_kbW04Roxl3PV.JdpAoTP
+ x1aNZgbxT9IFARkFVgYnJTrLzkzA8SU-
+Received: from 209.85.161.44 (EHLO mail-oo1-f44.google.com)
+ by 10.214.140.253 with SMTPs
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256);
+ Wed, 17 Jan 2024 13:20:43 +0000
+Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-59584f41f1eso936080eaf.1
+        for <nicolas.grosjean@rocketmail.com>; Wed, 17 Jan 2024 05:20:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1705497642; x=1706102442; darn=rocketmail.com;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=XO9b34n4t+1BVLwzXDf3wNTVJ9DF1ssYpf5yujtwieg=;
+        b=hjkgKGyqP2tuF2SM+5gBb5oV/L4o3EBAY5gB1ZoMD3j/hyX9IgZoq2m+m6wYJ0O8WG
+         II9srfMgXHyRFtxZLi9bQMVHuLIHHY2pSN2FOkFj/53KLDULaQw2ccky82XkBrxsAcpJ
+         VPKStu6/C+EQCsdLTWWWcuUMvpvPaFxfdMbG/m5F313/CscRNvy/xjETU2Nr7Fr+Kwhu
+         KsVtw5gw2ozgsRbdNuCiF52JPQnhel4SZv6NH/rw4Raemm0QmvuTPeXHiQ6bXpyvHkII
+         6R5IFofLbm0Gdb20Vg2fwWvaK/+RJuf95yrmPZ8vtBwJKpSziu5uos+26TM1Z40EauaZ
+         18JQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1705497642; x=1706102442;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XO9b34n4t+1BVLwzXDf3wNTVJ9DF1ssYpf5yujtwieg=;
+        b=rlil+/1XAqKZjouOS207z7tYX/U++ECEsHdi9t/0lGeTC67GOl3Zs8mVN79xvO0Z3e
+         GMgQmhxlyNb6qGEFPW0dBRYTGkMEsBXV7ijOOlBl0lI7J81eAUG6HeS4rbW5TP7XHtmk
+         IPdcWQOg1ugz6Lx+bpztELYWUJiP/JbBrr7ZyDE64uVLyoWCBwYx26TUxJ+zWgFuc2yr
+         5SNNnJ9vMStsA09QYT71YkCgA0bn0WpWNa6aHR2z55GgvkhqZf0rfm9+qCKaKAXhpRS0
+         TERFM9VWNUkc+h+/JTyGTMiuZpSC2mHyj5XsPiK7yEVO0fPIAU2/yTZqA1MLyKWLvPPo
+         vxiA==
+X-Gm-Message-State: AOJu0Yzg5PGO1qs9K/ktF8X4jGOSquyaZPQcclUg6LLHRGAVw7csgDXW
+	keCOuIBF3Grg6UX0XPMbLvpXi+IQFIaUnx6hYrU=
+X-Google-Smtp-Source: AGHT+IEuXwpjoFASGHB7avm2RpumM/WnhhjkjYuEXXNHMsymDGuD9jJSKY+eXLeuJwSxq6gtlaUPFvgOrCh5xUhpxBM=
+X-Received: by 2002:a05:6820:d94:b0:599:2b86:993 with SMTP id
+ ek20-20020a0568200d9400b005992b860993mr1578740oob.0.1705497642458; Wed, 17
+ Jan 2024 05:20:42 -0800 (PST)
+MIME-Version: 1.0
+References: <CAEpYgE4QSKTxBK6qR5hKs337BHvhf1HUN2AyjYc9QhDxRo1s2A@mail.gmail.com>
+ <a4f04f18-2897-4fdd-8330-a7bc4612bbb4@rocketmail.com>
+In-Reply-To: <a4f04f18-2897-4fdd-8330-a7bc4612bbb4@rocketmail.com>
+From: Acat Belgique <acat.belgique@gmail.com>
+Date: Wed, 17 Jan 2024 14:20:30 +0100
+Message-ID: <CAEpYgE4afe2DwR406bf6LMZBtqJz-UwDrAjnAcDAK=MH4_L-bg@mail.gmail.com>
+Subject: Lettre de l'ACAT janvier 2024
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="00000000000024e3df060f241d1e"
+Bcc: nicolas.grosjean@rocketmail.com
+Content-Length: 75812
+
+--00000000000024e3df060f241d1e
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+*La lettre de l=E2=80=99ACAT janvier 2024 *
+
+=E2=80=93                 *actions et pri=C3=A8re- *
+
+=E2=80=93
+
+*=C2=AB J=E2=80=99ai pris Cyrus par la main pour lui soumettre les nations =
+et d=C3=A9sarmer
+les rois, pour lui ouvrir les portes =C3=A0 deux battants, car aucune porte=
+ ne
+restera ferm=C3=A9e **=C2=BB
+                                *(Is 45, 1.4-6)
+
+Chers amis et destinataires de La Lettre,
+
+
+
+--- *A vous tous, nous adressons nos*
+
+ *M**e**i**l**l**e**u**r**s** v=C5=93ux 2024*
+
+*& disons **b**o**n**n**e** lecture (surtout de l=E2=80=99ACAT Info qui sui=
+vra de
+pr=C3=A8s cette lettre, nous vous expliquerons pourquoi) et que vos pri=C3=
+=A8res
+portent des fruits!!!*
+
+*Merci de votre infaillible soutien *
+
+
+
+C=C3=A9cile Auriol ( pour l=E2=80=99ACAT- Belgique)
+
+
+
+*Actions du mois *
+
+*IRAN                                                    **(**Amnesty)*
+
+Reza* (Gholamreza) Rasaei *de la minorit=C3=A9 kurde et de la minorit=C3=A9
+religieuse yarsan d=E2=80=99Iran, risque d=E2=80=99=C3=AAtre ex=C3=A9cut=C3=
+=A9 de fa=C3=A7on imminente pour
+avoir particip=C3=A9 au mouvement .
+
+Nos excuses aux membres du r=C3=A9seau SOS Peine de mort d=C3=A9j=C3=A0 int=
+ervanus sur ce
+cas. Cela nous avait =C3=A9chapp=C3=A9.
+
+
+
+Voici l=E2=80=99expos=C3=A9 du cas
+<https://github.com/Nicolas-Grosjean/acat/raw/main/2024/01/Janvier_2024_Ira=
+n_cas.pdf>
+et la lettre y aff=C3=A9rente
+<https://github.com/Nicolas-Grosjean/acat/raw/main/2024/01/Janvier_2024_Ira=
+n_lettre.docx>,
+=C3=A0 adresser =C3=A0 Gholamhossein Mohseni Ejei, responsable du pouvoir j=
+udiciaire
+via l=E2=80=99ambassade d=E2=80=99Iran
+
+
+
+*VIETNAM                                         * (*ACAT France)*
+
+Un jeune journaliste ind=C3=A9pendant, *Le Huu Minh Tuan*, en danger
+
+Expos=C3=A9 du cas
+<https://github.com/Nicolas-Grosjean/acat/raw/main/2024/01/Janvier_2024_Vie=
+tnam-cas-1.pdf>
+ et lettre correspondante =C3=A0 envoyer
+<https://github.com/Nicolas-Grosjean/acat/raw/main/2024/01/AAM_Le-Huu-Minh-=
+Tuan_202401-1.docx>
+=C3=A0 SE Julien Guerrier Ambassadeur de l=E2=80=99Union europ=C3=A9enne au=
+ Vietnam
+
+
+
+*La vie de notre ACAT*
+
+
+Nous vous rappelons la r=C3=A9union de nos partenaires de Riv=E2=80=99Esp=
+=C3=A9rance, les 2-3
+f=C3=A9vrier 2024, Palais des congr=C3=A8s, =C3=A0 Li=C3=A8ge.
+
+Quelles spiritualit=C3=A9s pour demain ?
+Sens et engagement
+
+L=E2=80=99ACAT sera pr=C3=A9sente.
+
+
+
+*Actualit=C3=A9s de la FIACAT*
+
+*[image: Description : =EF=B8=8F]**72 organisations, dont la FIACAT, appell=
+ent =C3=A0
+l'annulation de la condamnation et =C3=A0 la lib=C3=A9ration de deux d=C3=
+=A9fenseurs des
+droits humains du Bangladesh qui s'appr=C3=AAtent =C3=A0 =C3=AAtre incarc=
+=C3=A9r=C3=A9s. Ci-dessous,
+une version traduite de cet appel conjoint. * Les dirigeants d'un important
+groupe de d=C3=A9fense des droits sont condamn=C3=A9s sur la base d'accusat=
+ions
+forg=C3=A9es de toutes pi=C3=A8ces
+https://www.fiacat.org/presse/communiques-de-presse/3176-bangladesh-annulat=
+ion-de-la-condamnation-et-liberation-des-defenseurs-des-droits-humains-mobi=
+lises-contre-la-torture
+
+Sur ce pays, il existe un AU d'octobre 2023 (PJ).
+
+[image: Description : =EF=B8=8F]#UnitedAgainstTorture=E2=80=AF: Un consorti=
+um mondial
+soutient la lutte de la soci=C3=A9t=C3=A9 civile contre la torture
+https://www.fiacat.org/presse/communiques-de-presse/3152-unitedagainsttortu=
+re-un-consortium-mondial-soutient-la-lutte-de-la-societe-civile-contre-la-t=
+orture
+
+[image: Description : =EF=B8=8F]L=E2=80=99ACAT Congo, la Coalition congolai=
+se contre la
+peine de mort, l=E2=80=99Association pour les Droits de l'Homme et l'Univer=
+s
+Carc=C3=A9ral (ADHUC), la F=C3=A9d=C3=A9ration internationale des ACAT (FIA=
+CAT), la
+Coalition mondiale contre la peine de mort et le Consortium United Against
+Torture appellent le Gouvernement congolais =C3=A0 parachever les processus
+d=E2=80=99adh=C3=A9sion =C3=A0 deux trait=C3=A9s onusiens : le Deuxi=C3=A8m=
+e protocole facultatif se
+rapportant au Pacte international relatif aux droits civils et politiques,
+visant =C3=A0 abolir la peine de mort et le Protocole facultatif se rapport=
+ant =C3=A0
+la Convention contre la torture et autres peines ou traitements cruels,
+inhumains ou d=C3=A9gradants.
+
+ Nos organisations exhortent les autorit=C3=A9s congolaises =C3=A0 :
+
+   - achever les processus d=E2=80=99adh=C3=A9sion en cours =C3=A0 l=E2=80=
+=99OP2-PIDCP et =C3=A0 l=E2=80=99OPCAT,
+   en d=C3=A9posant les instruments d=E2=80=99adh=C3=A9sion au Secr=C3=A9ta=
+riat des Nations unies ;
+   - garantir l=E2=80=99acc=C3=A8s des lieux de d=C3=A9tention =C3=A0 la so=
+ci=C3=A9t=C3=A9 civile, en
+   facilitant notamment la d=C3=A9livrance d=E2=80=99autorisations de visit=
+es aux
+   organisations =C3=A0 l=E2=80=99instar de l=E2=80=99ACAT Congo.
+
+Retrouvez l=E2=80=99int=C3=A9gralit=C3=A9 du communiqu=C3=A9 de presse sur =
+le site de la FIACAT *:
+*
+https://www.fiacat.org/presse/3203-communique-appel-aux-autorites-congolais=
+es-pour-securiser-l-abolition-de-la-peine-de-mort-et-prevenir-la-torture-da=
+ns-les-lieux-de-privation-de-liberte
+
+
+
+*Rappel mensuel aux Acatiens*
+
+L=E2=80=99argent est le nerf de notre combat contre la torture. Par cons=C3=
+=A9quent nous
+demandons =C3=A0 ceux et celles qui auraient oubli=C3=A9, de bien vouloir r=
+=C3=A9gler
+leurs cotisations pour la nouvelle ann=C3=A9e; 30=E2=82=AC (40 =E2=82=AC po=
+ur les couples), sur
+le compte : CCP BE07 7765 9456 8166 en pr=C3=A9cisant bien NOMS et ADRESSES=
+, sur
+le bordereau de versement ou lors de l=E2=80=99introduction des coordonn=C3=
+=A9es
+bancaires.
+
+*AGENDA de janvier 2024 **(essentiellement de la LDH)*
+Ne manquez pas de signer la p=C3=A9tition d=E2=80=99Amnesty intitul=C3=A9e =
+*=C2=AB Ramenez
+Ahmadreza Djalali =C3=A0 la maison* =C2=BB, condamn=C3=A9 =C3=A0 mort =C3=
+=A0 l=E2=80=99issue d=E2=80=99un proc=C3=A8s
+manifestement in=C3=A9quitable, et risque toujours d=E2=80=99=C3=AAtre ex=
+=C3=A9cut=C3=A9 en Iran apr=C3=A8s
+plus de sept ans de d=C3=A9tention arbitraire =C2=BB.
+
+*Copier ce lien :*
+https://www.amnesty.be/veux-agir/agir-ligne/petitions/urgent-ahmadreza-djal=
+ali?s=3D2023-0073%3A99966931-56e5e3ba-1185-4377-85f8-9a30b5e12463
+
+
+
+*Symposium Violences soci=C3=A9tales,** effets sur la sant=C3=A9 et strat=
+=C3=A9gies*, les
+9 et 10 f=C3=A9vrier 2024 de 9h =C3=A0 17h30 au Campus Erasme de l'ULB, B=
+=C3=A2timent W -
+Auditoire Madeleine DE GENST.
+
+=C2=B7       A la source des d=C3=A9terminants socio-=C3=A9conomiques de la=
+ sant=C3=A9, il y a
+souvent des violences soci=C3=A9tales. Au cours de ces deux jours de sympos=
+ium,
+des intervenants des diff=C3=A9rents  domaines vont t=C3=A9moigner de leurs
+exp=C3=A9riences: en prison, dans la proc=C3=A9dure d=E2=80=99asile, sur le=
+ lieu de travail,
+dans le milieu scolaire, avec la police et face aux enjeux
+environnementaux.  Sur base de ces th=C3=A9matiques, nous souhaitons lister=
+ et
+comparer les diff=C3=A9rentes strat=C3=A9gies qui pourraient nous servir =
+=C3=A0 travailler
+au-del=C3=A0 du symptomatique : la strat=C3=A9gie (m=C3=A9dico) l=C3=A9gale=
+, l=E2=80=99utilisation des
+m=C3=A9dias, le lobbying politique, la recherche et l=E2=80=99=C3=A9ducatio=
+n. pour mettre en
+place une approche multidisciplinaire en priorisant des probl=C3=A9matiques=
+ et
+approches peu connues pour des populations pr=C3=A9sentant parfois des
+similitudes.
+
+*Manifestation Stop aux violences en centres ferm=C3=A9s*  le vendredi 19
+janvier 2024 =C3=A0 14h. Point de d=C3=A9part : Arts-Loi.
+
+=C2=B7       En moins d'une ann=C3=A9e, trois personnes ont trouv=C3=A9 la =
+mort dans les
+centres ferm=C3=A9s de Belgique. Ces violences insupportables ne cesseront =
+pas
+tant qu'une v=C3=A9ritable politique de r=C3=A9gularisation massive ne sera=
+ pas mise
+en place et tant que toutes les personnes enferm=C3=A9es n'auront pas =C3=
+=A9t=C3=A9
+lib=C3=A9r=C3=A9es. Getting the Voice Out et le Collectif zone neutre appel=
+lent =C3=A0 une
+manifestation au d=C3=A9part d'Arts-Loi qui s'arr=C3=AAtera devant l'Office=
+ des
+=C3=A9trangers.
+
+BONNE NOUVELLE EN PROVENANCE DU NICARAGUA !
+
+ Le Vatican a annonc=C3=A9 dimanche dernier avoir lib=C3=A9r=C3=A9 l'=C3=A9=
+v=C3=AAque Rolando
+Alvarez qui a =C3=A9t=C3=A9 transf=C3=A9r=C3=A9 =C3=A0 Rome. Un autre =C3=
+=A9v=C3=AAque, 15 pr=C3=AAtres et deux
+s=C3=A9minaristes ont =C3=A9galement =C3=A9t=C3=A9 lib=C3=A9r=C3=A9s et ren=
+voy=C3=A9s vers  la capitale
+italienne. Pour en savoir plus :
+https://international.la-croix.com/news/religion/how-the-vatican-secured-th=
+e-release-of-jailed-nicaraguan-bishop/19014Read
+more at:
+https://international.la-croix.com/news/religion/how-the-vatican-secured-th=
+e-release-of-jailed-nicaraguan-bishop/19014
+
+
+
+
+
+*INCONTOURNABLE !*
+
+
+
+=C3=89coutez P=C3=A8re d=E2=80=99ALOISIO sur RCF, =E2=80=A6 la voix de notr=
+e plaidoyer =C2=BB L'Union
+europ=C3=A9enne au d=C3=A9fi de l'accueil des =C3=A9trangers =C2=BB
+https://www.rcf.fr/actualite/lespace-europe-0?episode=3D422277, s=E2=80=99e=
+ntretenir
+avec le Pr *Andrea Rea* dont l=E2=80=98ouvrage =C2=AB H=C3=A9berger des exi=
+l=C3=A9=C2=B7es Initiatives
+citoyennes et hospitalit=C3=A9 =C2=BB, =C3=A9crit en collaboration avec  An=
+toine Roblain,
+Julia Hertault) parait en librairie-
+
+
+
+ (M=C3=A9ditation)
+
+
+
+Regarde !
+
+Je sais que tu as mille et une raisons de d=C3=A9sesp=C3=A9rer,
+
+Mais je voudrais te crier
+
+qu=E2=80=99il y a aussi mille et une autres raisons d=E2=80=99esp=C3=A9rer =
+!
+
+Ne laisse pas gagner ton c=C5=93ur
+
+par les mar=C3=A9es noires des mauvaises nouvelles,
+
+Pour changer le monde,
+
+il faut d=E2=80=99abord changer ton regard.
+
+
+
+Regarde et cueille chaque jour,
+
+autour de toi, au creux du quotidien,
+
+Ces mille et une fleurs d=E2=80=99esp=C3=A9rance :
+
+Celles qui poussent au milieu des plus sinistres tours de b=C3=A9ton,
+
+Des plus monotones lieux de transport ou de travail,
+
+De la plus froide chambre d=E2=80=99h=C3=B4pital,
+
+De la plus humble d=C3=A9cision, personnelle ou collective, pour la justice=
+.
+
+
+
+Regarde et vois tous ces hommes et toutes ces femmes
+
+Qui ne font pas =C2=AB la une =C2=BB des journaux,
+
+mais qui inventent, jour apr=C3=A8s jour,
+
+De nouvelles mani=C3=A8res de vivre, de partager, d=E2=80=99esp=C3=A9rer,
+
+Et qui manifestent que le Royaume de Dieu
+
+est =C3=A0 la port=C3=A9e de la main.
+
+
+
+Regarde et vois tous ces hommes et toutes ces femmes
+
+Qui, au lieu de crier que Dieu est aveugle, lui pr=C3=AAtent leurs yeux ;
+
+Qui, au lieu de crier que Dieu est manchot, lui pr=C3=AAtent leurs mains ;
+
+Qui, au lieu de crier que Dieu est muet, lui pr=C3=AAtent leurs voix.
+
+
+
+Regarde et entends,
+
+Car le monde actuel a besoin de retrouver ce =C2=AB regard du c=C5=93ur =C2=
+=BB,
+
+Et de cueillir ces fleurs de l=E2=80=99esp=C3=A9rance
+
+Pour mieux respirer et pour mieux vivre.
+
+ *Jeannette, Petite Soeur de l=E2=80=99Assomption, =C3=A0 partir d=E2=80=99=
+une pri=C3=A8re de Saint
+Fran=C3=A7ois d=E2=80=99Assise.*
+
+
+Retrouvez plus d=E2=80=99information sur le site Internet de l=E2=80=99ACAT
+<http://www.acat-belgique-francophone.be/>
+
+Suivez et =C2=AB soutenez =C2=BB notre page Facebook
+<https://www.facebook.com/contact.acatbef/>
+
+Soutenez l=E2=80=99ACAT en faisant un don : CCP: BE07 7765 9456 8166
+
+*Cette lettre vous est adress=C3=A9e en tant que membre ou sympathisant de
+l=E2=80=99ACAT Belgique.*
+
+*Si vous ne souhaitez plus la recevoir, merci de nous le signaler en
+r=C3=A9pondant =C3=A0 ce message.*
+
+Action des Chr=C3=A9tiens pour l=E2=80=99Abolition de la Torture, Rue Brogn=
+iez 44, 1070
+Bruxelles
+
+
+
+ACAT- Belgique/ Belgi=C3=AB/ Belgium Action des Chr=C3=A9tiens pour l'Aboli=
+tion de la
+Torture, Rue Brogniez 44,1070 Bruxelles.
+
+ www.acat.be <http://www.acat-belgique-francophone.be/>
+
+
+
+*Ce mail vous est adress=C3=A9 en tant que membre ou sympathisant de l=E2=
+=80=99ACAT
+Belgique. Si vous ne souhaitez plus le recevoir, merci de nous le signaler
+en r=C3=A9pondant =C3=A0 ce message. (R=C3=A8glement europ=C3=A9en n**=E1=
+=B5=92**2016/679 sur la
+Protection des donn=C3=A9es). *
+
+--00000000000024e3df060f241d1e
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><div class=3D"gmail_quote"><br>
+
+ =20
+   =20
+ =20
+  <div>
+    <blockquote type=3D"cite">
+      <div dir=3D"ltr">
+        <div align=3D"center">
+          <table style=3D"border-collapse:collapse;border:medium none" widt=
+h=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"1">
+            <tbody>
+              <tr>
+                <td style=3D"width:100%;border:1pt solid rgb(0,0,1);padding=
+:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%" valign=3D"top">
+                  <p class=3D"MsoNormal" style=3D"text-align:justify;margin=
+:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&=
+quot;serif&quot;"><i><u><span style=3D"font-size:14pt;font-family:&quot;Tre=
+buchet MS&quot;;color:rgb(0,0,144)">La
+                          lettre de l=E2=80=99ACAT janvier 2024 <span></spa=
+n></span></u></i></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;text-align:justify;li=
+ne-height:15pt;font-size:11pt;font-family:&quot;Trebuchet MS&quot;"><span s=
+tyle=3D"font-size:14pt;color:rgb(0,0,144)"><span>=E2=80=93<span style=3D"fo=
+nt:7pt &quot;Times New Roman&quot;">=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+                        </span></span></span><i><u><span style=3D"font-size=
+:14pt;color:rgb(0,0,144)">actions
+                          et pri=C3=A8re- <span></span></span></u></i></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;text-align:justify;li=
+ne-height:15pt;font-size:11pt;font-family:&quot;Trebuchet MS&quot;"><span s=
+tyle=3D"font-size:14pt;color:rgb(0,0,144)"><span>=E2=80=93<span style=3D"fo=
+nt:7pt &quot;Times New Roman&quot;">=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+                        </span></span></span><i><u><span style=3D"font-size=
+:14pt;color:rgb(0,0,144)"><span><span style=3D"text-decoration:none">=C2=A0=
+</span></span></span></u></i></p>
+                  <h5 style=3D"text-align:justify;margin:10pt 0cm 0.0001pt;=
+break-after:avoid;font-size:12pt;font-family:Calibri;color:rgb(36,63,96);fo=
+nt-weight:normal"><i><span style=3D"font-size:9pt;font-family:&quot;Trebuch=
+et MS&quot;;color:black"><span>
+                        </span></span></i><span style=3D"font-size:11pt">=
+=C2=A0</span><span style=3D"font-size:11pt;font-family:&quot;Trebuchet MS&q=
+uot;">=C2=A0=C2=A0 =C2=A0</span><i><span style=3D"font-size:11pt">=C2=AB=C2=
+=A0J=E2=80=99ai pris Cyrus par la
+                        main pour lui soumettre les nations=C2=A0et d=C3=A9=
+sarmer
+                        les rois, pour lui ouvrir les portes =C3=A0 deux
+                        battants,<br>
+                        car aucune porte ne restera ferm=C3=A9e=C2=A0</span=
+></i><i><span style=3D"font-size:9pt">=C2=BB<span>=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0
+                        </span><span>=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+</span><span>=C2=A0</span></span></i><span style=3D"font-size:9pt">(Is 45,=
+=C2=A01.4-6)</span><img width=3D"84" hspace=3D"9" height=3D"131" align=3D"l=
+eft"><i><span style=3D"font-size:9pt;font-family:&quot;Trebuchet MS&quot;;c=
+olor:black"><span></span></span></i></h5>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;padd=
+ing:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%" valign=3D"top">
+                  <p class=3D"MsoNormal" style=3D"text-align:justify;margin=
+:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&=
+quot;serif&quot;"><span style=3D"font-size:10pt;font-family:&quot;Trebuchet=
+ MS&quot;">Chers amis
+                      et destinataires de La Lettre, <span></span></span></=
+p>
+                  <p class=3D"MsoNormal" style=3D"text-align:justify;margin=
+:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&=
+quot;serif&quot;"><span style=3D"font-size:10pt;font-family:&quot;Trebuchet=
+ MS&quot;"><span>=C2=A0</span></span></p>
+                  <p style=3D"text-align:center;margin-right:0cm;margin-lef=
+t:0cm;font-size:10pt;font-family:Times" align=3D"center"><span style=3D"fon=
+t-family:Calibri">---</span><b><span style=3D"font-family:Times;color:navy"=
+> </span></b><b><span style=3D"font-size:12pt;font-family:&quot;Trebuchet M=
+S&quot;;color:navy">A
+                        vous tous, nous adressons nos</span></b><span style=
+=3D"font-size:12pt;font-family:&quot;Trebuchet MS&quot;;color:red"><span></=
+span></span></p>
+                  <p style=3D"text-align:center;margin-right:0cm;margin-lef=
+t:0cm;font-size:10pt;font-family:Times" align=3D"center"><b><span style=3D"=
+font-family:&quot;Trebuchet MS&quot;;color:navy"><span>=C2=A0</span></span>=
+</b><b><span style=3D"font-size:12pt;font-family:&quot;Trebuchet MS&quot;;c=
+olor:navy">M</span></b><b><span style=3D"font-size:12pt;font-family:&quot;T=
+rebuchet MS&quot;;color:green">e</span></b><b><span style=3D"font-size:12pt=
+;font-family:&quot;Trebuchet MS&quot;;color:rgb(255,204,0)">i</span></b><b>=
+<span style=3D"font-size:12pt;font-family:&quot;Trebuchet MS&quot;;color:rg=
+b(255,153,0)">l</span></b><b><span style=3D"font-size:12pt;font-family:&quo=
+t;Trebuchet MS&quot;;color:red">l</span></b><b><span style=3D"font-size:12p=
+t;font-family:&quot;Trebuchet MS&quot;;color:purple">e</span></b><b><span s=
+tyle=3D"font-size:12pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(51,51=
+,153)">u</span></b><b><span style=3D"font-size:12pt;font-family:&quot;Trebu=
+chet MS&quot;;color:green">r</span></b><b><span style=3D"font-size:12pt;fon=
+t-family:&quot;Trebuchet MS&quot;;color:rgb(255,204,0)">s</span></b><b><spa=
+n style=3D"font-size:12pt;font-family:&quot;Trebuchet MS&quot;"> <span styl=
+e=3D"color:rgb(255,153,0)">v</span><span style=3D"color:red">=C5=93</span><=
+span style=3D"color:purple">u</span><span style=3D"color:rgb(51,51,153)">x =
+2024<span></span></span></span></b></p>
+                  <p style=3D"text-align:center;margin-right:0cm;margin-lef=
+t:0cm;font-size:10pt;font-family:Times" align=3D"center"><b><span style=3D"=
+font-size:12pt;font-family:&quot;Trebuchet MS&quot;;color:green">&amp;
+                        disons </span></b><b><span style=3D"font-size:12pt;=
+font-family:&quot;Trebuchet MS&quot;;color:rgb(255,204,0)">b</span></b><b><=
+span style=3D"font-size:12pt;font-family:&quot;Trebuchet MS&quot;;color:rgb=
+(255,102,0)">o</span></b><b><span style=3D"font-size:12pt;font-family:&quot=
+;Trebuchet MS&quot;;color:red">n</span></b><b><span style=3D"font-size:12pt=
+;font-family:&quot;Trebuchet MS&quot;;color:purple">n</span></b><b><span st=
+yle=3D"font-size:12pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(51,51,=
+153)">e</span></b><b><span style=3D"font-size:12pt;font-family:&quot;Trebuc=
+het MS&quot;"> <span style=3D"color:green">l</span><span style=3D"color:rgb=
+(255,204,0)">e</span><span style=3D"color:rgb(255,102,0)">c</span><span sty=
+le=3D"color:red">t</span><span style=3D"color:purple">u</span><span style=
+=3D"color:rgb(51,51,153)">r</span><span style=3D"color:green">e (surtout de=
+ l=E2=80=99ACAT Info
+                          qui suivra de pr=C3=A8s cette lettre, nous vous
+                          expliquerons pourquoi)</span> et que vos <span st=
+yle=3D"color:rgb(255,153,0)">pri=C3=A8res portent
+                          des fruits</span><span style=3D"color:rgb(255,102=
+,0)">!</span><span style=3D"color:blue">!</span><span style=3D"color:purple=
+">!<span></span></span></span></b></p>
+                  <p style=3D"text-align:center;margin-right:0cm;margin-lef=
+t:0cm;font-size:10pt;font-family:Times" align=3D"center"><b><span style=3D"=
+font-size:12pt;font-family:&quot;Trebuchet MS&quot;;color:purple">Merci
+                        de votre infaillible soutien </span></b><span style=
+=3D"font-family:&quot;Trebuchet MS&quot;"><span></span></span></p>
+                  <p class=3D"MsoNormal" style=3D"text-align:justify;margin=
+:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&=
+quot;serif&quot;"><span style=3D"font-size:10pt;font-family:&quot;Trebuchet=
+ MS&quot;"><span>=C2=A0</span></span></p>
+                  <p class=3D"MsoNormal" style=3D"text-align:justify;margin=
+:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&=
+quot;serif&quot;"><span style=3D"font-size:10pt;font-family:&quot;Trebuchet=
+ MS&quot;">C=C3=A9cile
+                      Auriol ( pour l=E2=80=99ACAT- Belgique) <span></span>=
+</span></p>
+                  <p style=3D"text-align:justify;margin:0cm 0cm 0.0001pt;fo=
+nt-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;"><s=
+pan style=3D"font-size:10pt;font-family:&quot;Trebuchet MS&quot;"><span>=C2=
+=A0</span></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(255,153,0);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%" v=
+align=3D"top">
+                  <p style=3D"text-align:justify;margin:0cm 0cm 0.0001pt;fo=
+nt-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;"><b=
+><span style=3D"font-size:14pt;font-family:&quot;Trebuchet MS&quot;;color:r=
+gb(0,0,153)">Actions
+                        du mois <span></span></span></b></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(255,204,153);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%"=
+ valign=3D"top">
+                  <p class=3D"MsoNormal" style=3D"margin:0cm 0cm 12pt;line-=
+height:14pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;s=
+erif&quot;"><b><span style=3D"font-size:14pt;font-family:&quot;Trebuchet MS=
+&quot;;color:rgb(0,0,153)">IRAN
+                        <span>=C2=A0</span><span>=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0</span></span></b><b><sp=
+an style=3D"font-size:9pt;font-family:&quot;Trebuchet MS&quot;" lang=3D"FR-=
+CA">(</span></b><i><span style=3D"font-size:9pt;font-family:&quot;Trebuchet=
+ MS&quot;;color:black">Amnesty)</span></i><b><span style=3D"font-size:14pt;=
+font-family:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)"><span></span></spa=
+n></b></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(204,255,255);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%"=
+ valign=3D"top">
+                  <p style=3D"text-align:justify;margin:0cm 0cm 0.0001pt;fo=
+nt-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;"><s=
+pan style=3D"font-size:9.5pt;font-family:&quot;Trebuchet MS&quot;">Reza<b>
+                        (Gholamreza) Rasaei </b>de la minorit=C3=A9 kurde e=
+t
+                      de la minorit=C3=A9 religieuse yarsan d=E2=80=99Iran,=
+ risque
+                      d=E2=80=99=C3=AAtre ex=C3=A9cut=C3=A9 de fa=C3=A7on i=
+mminente pour avoir
+                      particip=C3=A9 au mouvement .<span></span></span></p>
+                  <p style=3D"text-align:justify;margin:0cm 0cm 0.0001pt;fo=
+nt-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;"><s=
+pan style=3D"font-size:9.5pt;font-family:&quot;Trebuchet MS&quot;">Nos excu=
+ses
+                      aux membres du r=C3=A9seau SOS Peine de mort d=C3=A9j=
+=C3=A0
+                      intervanus sur ce cas. Cela nous avait =C3=A9chapp=C3=
+=A9.</span><b><i><span style=3D"font-size:10pt;font-family:&quot;Trebuchet =
+MS&quot;;color:rgb(0,0,153)"><span></span></span></i></b></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(255,153,0);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%" v=
+align=3D"top">
+                  <p style=3D"text-align:center;margin:0cm 0cm 0.0001pt;fon=
+t-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;" ali=
+gn=3D"center"><span style=3D"font-size:10pt;font-family:&quot;Trebuchet MS&=
+quot;;color:rgb(0,0,153)"><span>=C2=A0</span></span></p>
+                  <p style=3D"text-align:center;margin:0cm 0cm 0.0001pt;fon=
+t-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;" ali=
+gn=3D"center"><span style=3D"font-size:10pt;font-family:&quot;Trebuchet MS&=
+quot;;color:rgb(0,0,153)"><a href=3D"https://github.com/Nicolas-Grosjean/ac=
+at/raw/main/2024/01/Janvier_2024_Iran_cas.pdf" target=3D"_blank">Voici
+                        l=E2=80=99expos=C3=A9 du cas</a> et <a href=3D"http=
+s://github.com/Nicolas-Grosjean/acat/raw/main/2024/01/Janvier_2024_Iran_let=
+tre.docx" target=3D"_blank">la
+                        lettre y aff=C3=A9rente</a>, =C3=A0 adresser =C3=A0
+                      Gholamhossein Mohseni Ejei, responsable du pouvoir
+                      judiciaire via l=E2=80=99ambassade d=E2=80=99Iran <b>=
+<span></span></b></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(204,255,204);border-style:none solid solid;border-width:medium 1pt 1p=
+t;background:rgb(255,204,153);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D=
+"100%" valign=3D"top">
+                  <p style=3D"text-align:justify;margin:0cm 0cm 0.0001pt;fo=
+nt-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;"><b=
+><span style=3D"font-size:14pt;font-family:&quot;Trebuchet MS&quot;;color:r=
+gb(0,0,153)"><span>=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
+                        </span><span></span></span></b></p>
+                  <p style=3D"text-align:justify;margin:0cm 0cm 0.0001pt;fo=
+nt-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;"><b=
+><span style=3D"font-size:14pt;font-family:&quot;Trebuchet MS&quot;;color:r=
+gb(0,0,153)">VIETNAM
+                        <span>=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0</span><span>=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0</span></span><=
+/b><span style=3D"font-size:10pt;font-family:&quot;Trebuchet MS&quot;;color=
+:rgb(0,0,153)"><span>=C2=A0</span>(</span><i><span style=3D"font-size:9pt;f=
+ont-family:&quot;Trebuchet MS&quot;;color:black">ACAT
+                        France)</span></i><b><span style=3D"font-size:14pt;=
+font-family:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)"><span></span></spa=
+n></b></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(204,2=
+55,204) rgb(204,255,204);border-style:none solid solid;border-width:medium =
+1pt 1pt;background:rgb(204,255,255);padding:2.75pt 2.75pt 2.75pt 2.55pt" wi=
+dth=3D"100%" valign=3D"top">
+                  <p style=3D"margin:0cm 0cm 0.0001pt;font-size:12pt;font-f=
+amily:&quot;Liberation Serif&quot;,&quot;serif&quot;"><span style=3D"font-s=
+ize:9.5pt;font-family:&quot;Trebuchet MS&quot;">Un jeune
+                      journaliste ind=C3=A9pendant, <b>Le Huu Minh Tuan</b>=
+,
+                      en danger</span><b><span style=3D"font-size:11pt;font=
+-family:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)"><span></span></span></=
+b></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(255,153,0);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%" v=
+align=3D"top">
+                  <p class=3D"MsoNormal" style=3D"margin:0cm 0cm 0.0001pt 1=
+91pt;text-indent:21.4pt;font-size:12pt;font-family:&quot;Liberation Serif&q=
+uot;,&quot;serif&quot;"><span style=3D"font-size:11pt;font-family:&quot;Tre=
+buchet MS&quot;;color:rgb(0,0,153)"><a href=3D"https://github.com/Nicolas-G=
+rosjean/acat/raw/main/2024/01/Janvier_2024_Vietnam-cas-1.pdf" target=3D"_bl=
+ank">Expos=C3=A9
+                        du cas </a><span>=C2=A0</span>et <a href=3D"https:/=
+/github.com/Nicolas-Grosjean/acat/raw/main/2024/01/AAM_Le-Huu-Minh-Tuan_202=
+401-1.docx" target=3D"_blank">lettre
+                        correspondante =C3=A0 envoyer</a> =C3=A0 SE Julien
+                      Guerrier Ambassadeur de l=E2=80=99Union europ=C3=A9en=
+ne au
+                      Vietnam</span><b><span style=3D"font-family:&quot;Tre=
+buchet MS&quot;"><span></span></span></b></p>
+                  <p class=3D"MsoNormal" style=3D"margin:8pt 0cm 0.0001pt;t=
+ext-align:justify;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&=
+quot;serif&quot;"><b><span style=3D"font-size:14pt;font-family:&quot;Trebuc=
+het MS&quot;;color:rgb(0,0,153)"><span>=C2=A0</span></span></b></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(204,255,255);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%"=
+ valign=3D"top">
+                  <p style=3D"text-align:center;margin:0cm 0cm 0.0001pt;fon=
+t-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;" ali=
+gn=3D"center"><b><span style=3D"font-family:&quot;Trebuchet MS&quot;;color:=
+rgb(0,0,153)">La vie
+                        de notre ACAT<span></span></span></b></p>
+                  <p style=3D"text-align:justify;margin:0cm 0cm 0.0001pt;fo=
+nt-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;"><s=
+pan style=3D"font-size:10pt;font-family:&quot;Trebuchet MS&quot;"><span>=C2=
+=A0</span></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(255,255,153);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%"=
+ valign=3D"top">
+                  <h1 style=3D"text-align:center;margin:24pt 0cm 0.0001pt;b=
+reak-after:avoid;font-size:16pt;font-family:Calibri;color:rgb(52,90,138);fo=
+nt-weight:bold" align=3D"center"><span style=3D"font-size:10pt;font-family:=
+&quot;Trebuchet MS&quot;">Nous vous
+                      rappelons la r=C3=A9union de nos partenaires de
+                      Riv=E2=80=99Esp=C3=A9rance, les </span><span style=3D=
+"font-size:10pt;font-family:&quot;Trebuchet MS&quot;;font-weight:normal">2-=
+3
+                      f=C3=A9vrier 2024, Palais des congr=C3=A8s, =C3=A0 Li=
+=C3=A8ge.</span><span style=3D"color:rgb(52,90,138)"><span></span></span></=
+h1>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;text-align:center;fon=
+t-size:10pt;font-family:Times" align=3D"center"><span style=3D"font-family:=
+&quot;Trebuchet MS&quot;"><span><span style=3D"color:blue;text-decoration:u=
+nderline">Quelles
+                          spiritualit=C3=A9s pour demain=C2=A0?</span></spa=
+n></span><span></span></p>
+                  <h1 style=3D"margin:0cm 0cm 0.0001pt;text-align:center;br=
+eak-after:avoid;font-size:16pt;font-family:Calibri;color:rgb(52,90,138);fon=
+t-weight:bold" align=3D"center"><span style=3D"font-size:10pt;font-family:&=
+quot;Trebuchet MS&quot;;font-weight:normal">Sens
+                      et engagement</span><span style=3D"color:rgb(52,90,13=
+8)"><span></span></span></h1>
+                  <p class=3D"MsoNormal" style=3D"margin:0cm 0cm 0.0001pt;f=
+ont-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;"><=
+span style=3D"font-family:&quot;Trebuchet MS&quot;">L=E2=80=99ACAT
+                      sera pr=C3=A9sente.</span><span><span></span></span><=
+/p>
+                  <p class=3D"MsoNormal" style=3D"margin:0cm 0cm 0.0001pt;f=
+ont-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;"><=
+span style=3D"font-size:10.5pt"><span>=C2=A0</span></span></p>
+                </td>
+              </tr>
+              <tr style=3D"height:39.85pt">
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(204,255,255);padding:2.75pt 2.75pt 2.75pt 2.55pt;height:39.85pt"=
+ width=3D"100%" valign=3D"top">
+                  <p class=3D"MsoNormal" style=3D"text-align:center;line-he=
+ight:14pt;margin:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberati=
+on Serif&quot;,&quot;serif&quot;" align=3D"center"><b><u><span style=3D"fon=
+t-family:&quot;Trebuchet MS&quot;;color:black">Actualit=C3=A9s de
+                          la FIACAT<span></span></span></u></b></p>
+                </td>
+              </tr>
+              <tr style=3D"height:26.3pt">
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(255,204,153);padding:2.75pt 2.75pt 2.75pt 2.55pt;height:26.3pt" =
+width=3D"100%" valign=3D"top">
+                  <p style=3D"margin-right:0cm;margin-left:0cm;font-size:10=
+pt;font-family:Times"><b><span style=3D"font-family:Helvetica"><img alt=3D"=
+Description : =EF=B8=8F" width=3D"17" height=3D"17"></span></b><i><span sty=
+le=3D"font-family:&quot;Trebuchet MS&quot;">72
+                        organisations, dont la FIACAT, appellent =C3=A0
+                        l&#39;annulation de la condamnation et =C3=A0 la
+                        lib=C3=A9ration de deux d=C3=A9fenseurs des droits =
+humains
+                        du Bangladesh qui s&#39;appr=C3=AAtent =C3=A0 =C3=
+=AAtre incarc=C3=A9r=C3=A9s.
+                        Ci-dessous, une version traduite de cet appel
+                        conjoint. </span></i><span style=3D"font-family:&qu=
+ot;Trebuchet MS&quot;">=C2=A0Les
+                      dirigeants d&#39;un important groupe de d=C3=A9fense =
+des
+                      droits sont condamn=C3=A9s sur la base d&#39;accusati=
+ons
+                      forg=C3=A9es de toutes pi=C3=A8ces </span><a href=3D"=
+https://www.fiacat.org/presse/communiques-de-presse/3176-bangladesh-annulat=
+ion-de-la-condamnation-et-liberation-des-defenseurs-des-droits-humains-mobi=
+lises-contre-la-torture" style=3D"color:blue;text-decoration:underline" tar=
+get=3D"_blank"><span style=3D"font-family:&quot;Trebuchet MS&quot;;color:wi=
+ndowtext;text-decoration:none">https://www.fiacat.org/presse/communiques-de=
+-presse/3176-bangladesh-annulation-de-la-condamnation-et-liberation-des-def=
+enseurs-des-droits-humains-mobilises-contre-la-torture</span></a><span styl=
+e=3D"font-family:&quot;Trebuchet MS&quot;"> <span></span></span></p>
+                  <p style=3D"margin-right:0cm;margin-left:0cm;font-size:10=
+pt;font-family:Times"><span style=3D"font-family:&quot;Trebuchet MS&quot;">=
+Sur
+                      ce pays, il existe un AU d&#39;octobre 2023 (PJ).<spa=
+n></span></span></p>
+                  <p style=3D"margin-right:0cm;margin-left:0cm;font-size:10=
+pt;font-family:Times"><span style=3D"font-family:&quot;Trebuchet MS&quot;">=
+<img alt=3D"Description : =EF=B8=8F" width=3D"17" height=3D"17" border=3D"0=
+"></span><span style=3D"font-family:&quot;Trebuchet MS&quot;">#UnitedAgains=
+tTorture=E2=80=AF:
+                      Un consortium mondial soutient la lutte de la
+                      soci=C3=A9t=C3=A9 civile contre la torture </span><a =
+href=3D"https://www.fiacat.org/presse/communiques-de-presse/3152-unitedagai=
+nsttorture-un-consortium-mondial-soutient-la-lutte-de-la-societe-civile-con=
+tre-la-torture" style=3D"color:blue;text-decoration:underline" target=3D"_b=
+lank"><span style=3D"font-family:&quot;Trebuchet MS&quot;;color:windowtext;=
+text-decoration:none">https://www.fiacat.org/presse/communiques-de-presse/3=
+152-unitedagainsttorture-un-consortium-mondial-soutient-la-lutte-de-la-soci=
+ete-civile-contre-la-torture</span></a><span style=3D"font-family:&quot;Tre=
+buchet MS&quot;"><span></span></span></p>
+                  <p class=3D"MsoNormal" style=3D"text-align:justify;margin=
+:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&=
+quot;serif&quot;"><span style=3D"font-size:10pt;font-family:&quot;Trebuchet=
+ MS&quot;"><img alt=3D"Description : =EF=B8=8F" width=3D"17" height=3D"17" =
+border=3D"0"></span><span style=3D"font-size:10pt;font-family:&quot;Trebuch=
+et MS&quot;">L=E2=80=99ACAT
+                      Congo, la Coalition congolaise contre la peine de
+                      mort, l=E2=80=99Association pour les Droits de l&#39;=
+Homme et
+                      l&#39;Univers Carc=C3=A9ral (ADHUC), la F=C3=A9d=C3=
+=A9ration
+                      internationale des ACAT (FIACAT), la Coalition
+                      mondiale contre la peine de mort et le Consortium
+                      United Against Torture appellent le Gouvernement
+                      congolais =C3=A0 parachever les processus d=E2=80=99a=
+dh=C3=A9sion =C3=A0
+                      deux trait=C3=A9s onusiens=C2=A0: le Deuxi=C3=A8me pr=
+otocole
+                      facultatif se rapportant au Pacte international
+                      relatif aux droits civils et politiques, visant =C3=
+=A0
+                      abolir la peine de mort et le Protocole facultatif
+                      se rapportant =C3=A0 la Convention contre la torture =
+et
+                      autres peines ou traitements cruels, inhumains ou
+                      d=C3=A9gradants. <span></span></span></p>
+                  <p class=3D"MsoNormal" style=3D"text-align:justify;margin=
+:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&=
+quot;serif&quot;"><span style=3D"font-size:10pt;font-family:&quot;Trebuchet=
+ MS&quot;">=C2=A0Nos
+                      organisations exhortent les autorit=C3=A9s congolaise=
+s
+                      =C3=A0=C2=A0:<span></span></span></p>
+                  <ul style=3D"margin-bottom:0cm" type=3D"disc">
+                    <li class=3D"MsoNormal" style=3D"text-align:justify;mar=
+gin:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot=
+;,&quot;serif&quot;"><span style=3D"font-size:10pt;font-family:Calibri">ach=
+ever
+                        les processus d=E2=80=99adh=C3=A9sion en cours =C3=
+=A0
+                        l=E2=80=99OP2-PIDCP=C2=A0et =C3=A0 l=E2=80=99OPCAT,=
+ en d=C3=A9posant les
+                        instruments d=E2=80=99adh=C3=A9sion au Secr=C3=A9ta=
+riat des
+                        Nations unies ;</span><span style=3D"font-size:10pt=
+;font-family:Times"><span></span></span></li>
+                    <li class=3D"MsoNormal" style=3D"text-align:justify;mar=
+gin:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot=
+;,&quot;serif&quot;"><span style=3D"font-family:Calibri">garantir l=E2=80=
+=99acc=C3=A8s des
+                        lieux de d=C3=A9tention =C3=A0 la soci=C3=A9t=C3=A9=
+ civile, en
+                        facilitant notamment la d=C3=A9livrance
+                        d=E2=80=99autorisations de visites aux organisation=
+s =C3=A0
+                        l=E2=80=99instar de l=E2=80=99ACAT Congo.</span><sp=
+an style=3D"font-size:10pt;font-family:Times"><span></span></span></li>
+                  </ul>
+                  <p class=3D"MsoNormal" style=3D"margin:0cm 0cm 0.0001pt 3=
+6pt;text-align:justify;font-size:12pt;font-family:&quot;Liberation Serif&qu=
+ot;,&quot;serif&quot;"><span style=3D"font-size:10pt;font-family:&quot;Treb=
+uchet MS&quot;">Retrouvez
+                      l=E2=80=99int=C3=A9gralit=C3=A9 du communiqu=C3=A9 de=
+ presse sur le site
+                      de la FIACAT=C2=A0</span><b><span style=3D"font-famil=
+y:Calibri">: </span></b><span style=3D"font-family:Calibri"><span><span sty=
+le=3D"color:blue;text-decoration:underline"><a href=3D"https://www.fiacat.o=
+rg/presse/3203-communique-appel-aux-autorites-congolaises-pour-securiser-l-=
+abolition-de-la-peine-de-mort-et-prevenir-la-torture-dans-les-lieux-de-priv=
+ation-de-liberte" target=3D"_blank">https://www.fiacat.org/presse/3203-comm=
+unique-appel-aux-autorites-congolaises-pour-securiser-l-abolition-de-la-pei=
+ne-de-mort-et-prevenir-la-torture-dans-les-lieux-de-privation-de-liberte</a=
+></span></span>
+                      <span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt 32.1pt;text-align:jus=
+tify;line-height:15pt;font-size:11pt;font-family:&quot;Trebuchet MS&quot;">=
+<b><u><span style=3D"color:black"><span><span style=3D"text-decoration:none=
+">=C2=A0</span></span></span></u></b></p>
+                </td>
+              </tr>
+              <tr style=3D"height:26.3pt">
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:white;padding:2.75pt 2.75pt 2.75pt 2.55pt;height:26.3pt" width=3D"10=
+0%" valign=3D"top">
+                  <p class=3D"MsoNormal" style=3D"text-align:center;line-he=
+ight:14pt;margin:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberati=
+on Serif&quot;,&quot;serif&quot;" align=3D"center"><b><u><span style=3D"fon=
+t-size:10pt;font-family:&quot;Trebuchet MS&quot;;color:black">Rappel
+                          mensuel aux Acatiens<span></span></span></u></b><=
+/p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(255,255,153);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%"=
+ valign=3D"top">
+                  <p style=3D"margin:0cm 0cm 7pt;text-align:justify;line-he=
+ight:14pt;font-size:10pt;font-family:Times"><span style=3D"font-family:&quo=
+t;Trebuchet MS&quot;;color:black">L=E2=80=99argent est le
+                      nerf de notre combat contre la torture. Par
+                      cons=C3=A9quent nous demandons =C3=A0 ceux et celles =
+qui
+                      auraient oubli=C3=A9, de bien vouloir r=C3=A9gler leu=
+rs
+                      cotisations pour la nouvelle ann=C3=A9e; </span><span=
+ style=3D"font-family:&quot;Trebuchet MS&quot;;color:red">30=E2=82=AC (40 =
+=E2=82=AC pour
+                      les couples), sur le compte=C2=A0: CCP BE07 7765 9456
+                      8166</span><span style=3D"font-family:&quot;Trebuchet=
+ MS&quot;;color:black"> en pr=C3=A9cisant
+                      bien NOMS et ADRESSES, sur le bordereau de
+                      versement ou lors de l=E2=80=99introduction des
+                      coordonn=C3=A9es bancaires. <span></span></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(204,255,255);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%"=
+ valign=3D"top">
+                  <p style=3D"margin:0cm 0cm 7pt;text-align:center;line-hei=
+ght:14pt;font-size:10pt;font-family:Times" align=3D"center"><b><span style=
+=3D"font-size:12pt;font-family:&quot;Trebuchet MS&quot;;color:black">AGENDA
+                        de janvier 2024 </span></b><b><span style=3D"font-f=
+amily:&quot;Trebuchet MS&quot;;color:black">(essentiellement
+                        de la LDH)</span></b><b><span style=3D"font-size:12=
+pt;font-family:&quot;Trebuchet MS&quot;;color:black"><span></span></span></=
+b></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(255,204,153);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%"=
+ valign=3D"top">
+                  <h1 style=3D"margin:24pt 0cm 0.0001pt;break-after:avoid;f=
+ont-size:16pt;font-family:Calibri;color:rgb(52,90,138);font-weight:bold"><s=
+pan style=3D"font-size:10pt;font-family:&quot;Trebuchet MS&quot;">Ne manque=
+z
+                      pas de signer la p=C3=A9tition d=E2=80=99Amnesty inti=
+tul=C3=A9e <i>=C2=AB=C2=A0Ramenez
+                        Ahmadreza Djalali =C3=A0 la maison</i>=C2=A0=C2=BB,=
+ condamn=C3=A9 =C3=A0
+                      mort =C3=A0 l=E2=80=99issue d=E2=80=99un proc=C3=A8s =
+manifestement
+                      in=C3=A9quitable, et risque toujours d=E2=80=99=C3=AA=
+tre ex=C3=A9cut=C3=A9 en
+                      Iran apr=C3=A8s plus de sept ans de d=C3=A9tention
+                      arbitraire=C2=A0=C2=BB.<span></span></span></h1>
+                  <p class=3D"MsoNormal" style=3D"margin:0cm 0cm 0.0001pt 3=
+6pt;text-align:justify;font-size:12pt;font-family:&quot;Liberation Serif&qu=
+ot;,&quot;serif&quot;"><u><span style=3D"font-size:10pt;font-family:&quot;T=
+rebuchet MS&quot;">Copier ce
+                        lien=C2=A0:</span></u><span style=3D"font-size:10pt=
+;font-family:&quot;Trebuchet MS&quot;"> <a href=3D"https://www.amnesty.be/v=
+eux-agir/agir-ligne/petitions/urgent-ahmadreza-djalali?s=3D2023-0073%3A9996=
+6931-56e5e3ba-1185-4377-85f8-9a30b5e12463" target=3D"_blank">https://www.am=
+nesty.be/veux-agir/agir-ligne/petitions/urgent-ahmadreza-djalali?s=3D2023-0=
+073%3A99966931-56e5e3ba-1185-4377-85f8-9a30b5e12463</a><span></span></span>=
+</p>
+                  <p style=3D"margin:0cm 0cm 7pt;text-align:center;line-hei=
+ght:14pt;font-size:10pt;font-family:Times" align=3D"center"><b><span style=
+=3D"font-family:&quot;Trebuchet MS&quot;;color:black"><span>=C2=A0</span></=
+span></b></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(255,153,0);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%" v=
+align=3D"top">
+                  <p style=3D"margin-right:0cm;margin-left:0cm;font-size:10=
+pt;font-family:Times"><b><u><span style=3D"font-family:&quot;Trebuchet MS&q=
+uot;">Symposium
+                          Violences soci=C3=A9tales,</span></u></b><b><span=
+ style=3D"font-family:&quot;Trebuchet MS&quot;">
+                        effets sur la sant=C3=A9 et strat=C3=A9gies</span><=
+/b><span style=3D"font-family:&quot;Trebuchet MS&quot;">, les
+                      9 et 10 f=C3=A9vrier 2024 de 9h =C3=A0 17h30 au Campu=
+s
+                      Erasme de l&#39;ULB, B=C3=A2timent W - Auditoire Made=
+leine
+                      DE GENST.<span>=C2=A0 </span><span></span></span></p>
+                  <p style=3D"margin-left:36pt;margin-right:0cm;font-size:1=
+0pt;font-family:Times"><span style=3D"font-family:Symbol"><span>=C2=B7<span=
+ style=3D"font:7pt &quot;Times New Roman&quot;">=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0
+                        </span></span></span><span style=3D"font-family:&qu=
+ot;Trebuchet MS&quot;">A la
+                      source des d=C3=A9terminants socio-=C3=A9conomiques d=
+e la
+                      sant=C3=A9, il y a souvent des violences soci=C3=A9ta=
+les. Au
+                      cours de ces deux jours de symposium, des
+                      intervenants des diff=C3=A9rents <span>=C2=A0</span>d=
+omaines
+                      vont t=C3=A9moigner de leurs exp=C3=A9riences: en pri=
+son,
+                      dans la proc=C3=A9dure d=E2=80=99asile, sur le lieu d=
+e travail,
+                      dans le milieu scolaire, avec la police et face
+                      aux enjeux environnementaux. <span>=C2=A0</span>Sur
+                      base de ces th=C3=A9matiques, nous souhaitons lister =
+et
+                      comparer les diff=C3=A9rentes strat=C3=A9gies qui pou=
+rraient
+                      nous servir =C3=A0 travailler au-del=C3=A0 du symptom=
+atique
+                      : la strat=C3=A9gie (m=C3=A9dico) l=C3=A9gale, l=E2=
+=80=99utilisation des
+                      m=C3=A9dias, le lobbying politique, la recherche et
+                      l=E2=80=99=C3=A9ducation. pour mettre en place une ap=
+proche
+                      multidisciplinaire en priorisant des
+                      probl=C3=A9matiques et approches peu connues pour des
+                      populations pr=C3=A9sentant parfois des similitudes.<=
+u><span></span></u></span></p>
+                  <p style=3D"margin-right:0cm;margin-left:0cm;font-size:10=
+pt;font-family:Times"><b><u><span style=3D"font-family:&quot;Trebuchet MS&q=
+uot;">Manifestation
+                          Stop aux violences en centres ferm=C3=A9s</span><=
+/u></b><span style=3D"font-family:&quot;Trebuchet MS&quot;"> <span>=C2=A0</=
+span>le
+                      vendredi 19 janvier 2024 =C3=A0 14h. Point de d=C3=A9=
+part :
+                      Arts-Loi.<span></span></span></p>
+                  <p style=3D"margin-left:36pt;margin-right:0cm;font-size:1=
+0pt;font-family:Times"><span style=3D"font-family:Symbol"><span>=C2=B7<span=
+ style=3D"font:7pt &quot;Times New Roman&quot;">=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0
+                        </span></span></span><span style=3D"font-family:&qu=
+ot;Trebuchet MS&quot;">En
+                      moins d&#39;une ann=C3=A9e, trois personnes ont trouv=
+=C3=A9 la
+                      mort dans les centres ferm=C3=A9s de Belgique. Ces
+                      violences insupportables ne cesseront pas tant
+                      qu&#39;une v=C3=A9ritable politique de r=C3=A9gularis=
+ation
+                      massive ne sera pas mise en place et tant que
+                      toutes les personnes enferm=C3=A9es n&#39;auront pas =
+=C3=A9t=C3=A9
+                      lib=C3=A9r=C3=A9es. Getting the Voice Out et le Colle=
+ctif
+                      zone neutre appellent =C3=A0 une manifestation au
+                      d=C3=A9part d&#39;Arts-Loi qui s&#39;arr=C3=AAtera de=
+vant l&#39;Office
+                      des =C3=A9trangers.<span></span></span></p>
+                  <p style=3D"text-align:center;line-height:14pt;background=
+:white;margin-right:0cm;margin-left:0cm;font-size:10pt;font-family:Times" a=
+lign=3D"center"><span style=3D"font-size:14pt;font-family:&quot;Trebuchet M=
+S&quot;;color:black">BONNE
+                      NOUVELLE EN PROVENANCE DU NICARAGUA=C2=A0</span><span=
+ style=3D"font-family:&quot;Trebuchet MS&quot;;color:black">!<span></span><=
+/span></p>
+                  <p style=3D"text-align:center;line-height:14pt;background=
+:white;margin-right:0cm;margin-left:0cm;font-size:10pt;font-family:Times" a=
+lign=3D"center"><span style=3D"font-family:&quot;Trebuchet MS&quot;;color:b=
+lack"><span>=C2=A0</span>Le
+                      Vatican a annonc=C3=A9 dimanche dernier avoir lib=C3=
+=A9r=C3=A9
+                      l&#39;=C3=A9v=C3=AAque Rolando Alvarez qui a =C3=A9t=
+=C3=A9 transf=C3=A9r=C3=A9 =C3=A0
+                      Rome. Un autre =C3=A9v=C3=AAque, 15 pr=C3=AAtres et d=
+eux
+                      s=C3=A9minaristes ont =C3=A9galement =C3=A9t=C3=A9
+                      lib=C3=A9r=C3=A9s et renvoy=C3=A9s vers <span>=C2=A0<=
+/span>la
+                      capitale italienne. Pour en savoir plus : <a href=3D"=
+https://international.la-croix.com/news/religion/how-the-vatican-secured-th=
+e-release-of-jailed-nicaraguan-bishop/19014Read" target=3D"_blank">https://=
+international.la-croix.com/news/religion/how-the-vatican-secured-the-releas=
+e-of-jailed-nicaraguan-bishop/19014Read</a>
+                      more at: <a href=3D"https://international.la-croix.co=
+m/news/religion/how-the-vatican-secured-the-release-of-jailed-nicaraguan-bi=
+shop/19014" target=3D"_blank">https://international.la-croix.com/news/relig=
+ion/how-the-vatican-secured-the-release-of-jailed-nicaraguan-bishop/19014</=
+a><span></span></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;padd=
+ing:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%" valign=3D"top">
+                  <p style=3D"text-align:justify;margin:0cm 0cm 0.0001pt;fo=
+nt-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;"><s=
+pan style=3D"font-size:10pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(=
+0,0,153)"><span>=C2=A0</span></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(243,243,243);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%"=
+ valign=3D"top">
+                  <p class=3D"MsoNormal" style=3D"text-align:justify;margin=
+:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&=
+quot;serif&quot;"><span style=3D"font-size:14pt"><span>=C2=A0</span></span>=
+</p>
+                  <p class=3D"MsoNormal" style=3D"text-align:center;margin:=
+0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&q=
+uot;serif&quot;" align=3D"center"><b><span style=3D"font-size:14pt;font-fam=
+ily:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)">INCONTOURNABLE=C2=A0!<span=
+></span></span></b></p>
+                  <p style=3D"text-align:justify;margin:0cm 0cm 0.0001pt;fo=
+nt-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;"><s=
+pan style=3D"font-size:10pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(=
+0,0,153)"><span>=C2=A0</span></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(243,243,243);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%"=
+ valign=3D"top">
+                  <p class=3D"MsoNormal" style=3D"text-align:justify;margin=
+:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&=
+quot;serif&quot;"><span style=3D"font-family:&quot;Trebuchet MS&quot;;color=
+:rgb(0,0,153)">=C3=89coutez
+                      P=C3=A8re d=E2=80=99ALOISIO sur RCF, =E2=80=A6 la voi=
+x de notre
+                      plaidoyer=C2=A0=C2=BB</span><span style=3D"font-famil=
+y:&quot;Trebuchet MS&quot;">
+                      L&#39;Union europ=C3=A9enne au d=C3=A9fi de l&#39;acc=
+ueil des
+                      =C3=A9trangers=C2=A0=C2=BB</span><span> </span><a hre=
+f=3D"https://www.rcf.fr/actualite/lespace-europe-0?episode=3D422277" style=
+=3D"color:blue;text-decoration:underline" target=3D"_blank"><span style=3D"=
+font-family:&quot;Trebuchet MS&quot;">https://www.rcf.fr/actualite/lespace-=
+europe-0?episode=3D422277</span></a><span style=3D"font-family:&quot;Trebuc=
+het MS&quot;;color:rgb(0,0,153)">,
+                      s=E2=80=99entretenir avec le Pr <b>Andrea Rea</b> don=
+t
+                      l=E2=80=98ouvrage =C2=AB=C2=A0H=C3=A9berger des exil=
+=C3=A9=C2=B7es Initiatives
+                      citoyennes et hospitalit=C3=A9=C2=A0=C2=BB, =C3=A9cri=
+t en
+                      collaboration avec<span>=C2=A0 </span>Antoine Roblain=
+,
+                      Julia Hertault) parait en librairie- <span></span></s=
+pan></p>
+                  <p class=3D"MsoNormal" style=3D"text-align:justify;margin=
+:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&=
+quot;serif&quot;"><span style=3D"font-family:&quot;Trebuchet MS&quot;;color=
+:rgb(0,0,153)"><span>=C2=A0</span></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(255,255,153);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%"=
+ valign=3D"top">
+                  <p style=3D"margin:0cm 0cm 0.0001pt;text-align:center;lin=
+e-height:12pt;font-size:10pt;font-family:Times" align=3D"center"><span styl=
+e=3D"font-size:12pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)=
+"><span>=C2=A0</span>(M=C3=A9ditation)<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;text-align:center;lin=
+e-height:12pt;font-size:10pt;font-family:Times" align=3D"center"><span styl=
+e=3D"font-size:12pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)=
+"><span>=C2=A0</span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;text-align:center;lin=
+e-height:12pt;font-size:10pt;font-family:Times" align=3D"center"><span styl=
+e=3D"font-size:12pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)=
+">Regarde=C2=A0!<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">Je
+                      sais que tu as mille et une raisons de d=C3=A9sesp=C3=
+=A9rer,<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">Mais
+                      je voudrais te crier<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">qu=E2=80=99il
+                      y a aussi mille et une autres raisons d=E2=80=99esp=
+=C3=A9rer !<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">Ne
+                      laisse pas gagner ton c=C5=93ur<span></span></span></=
+p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">par
+                      les mar=C3=A9es noires des mauvaises nouvelles,<span>=
+</span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">Pour
+                      changer le monde,<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">il
+                      faut d=E2=80=99abord changer ton regard.<span></span>=
+</span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">=C2=A0<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times;text-align:center"><span style=3D"font-size:12=
+pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)">Regarde
+                      et cueille chaque jour,<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times;text-align:center"><span style=3D"font-size:12=
+pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)">autour
+                      de toi, au creux du quotidien,<span></span></span></p=
+>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times;text-align:center"><span style=3D"font-size:12=
+pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)">Ces
+                      mille et une fleurs d=E2=80=99esp=C3=A9rance :<span><=
+/span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times;text-align:center"><span style=3D"font-size:12=
+pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)">Celles
+                      qui poussent au milieu des plus sinistres tours de
+                      b=C3=A9ton,<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times;text-align:center"><span style=3D"font-size:12=
+pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)">Des
+                      plus monotones lieux de transport ou de travail,<span=
+></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times;text-align:center"><span style=3D"font-size:12=
+pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)">De
+                      la plus froide chambre d=E2=80=99h=C3=B4pital,<span><=
+/span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times;text-align:center"><span style=3D"font-size:12=
+pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)">De
+                      la plus humble d=C3=A9cision, personnelle ou
+                      collective, pour la justice.<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">=C2=A0<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">Regarde
+                      et vois tous ces hommes et toutes ces femmes<span></s=
+pan></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">Qui
+                      ne font pas =C2=AB la une =C2=BB des journaux,<span><=
+/span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">mais
+                      qui inventent, jour apr=C3=A8s jour,<span></span></sp=
+an></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">De
+                      nouvelles mani=C3=A8res de vivre, de partager,
+                      d=E2=80=99esp=C3=A9rer,<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">Et
+                      qui manifestent que le Royaume de Dieu<span></span></=
+span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">est
+                      =C3=A0 la port=C3=A9e de la main.<span></span></span>=
+</p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">=C2=A0<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">Regarde
+                      et vois tous ces hommes et toutes ces femmes<span></s=
+pan></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">Qui,
+                      au lieu de crier que Dieu est aveugle, lui pr=C3=AAte=
+nt
+                      leurs yeux ;<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">Qui,
+                      au lieu de crier que Dieu est manchot, lui pr=C3=AAte=
+nt
+                      leurs mains ;<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">Qui,
+                      au lieu de crier que Dieu est muet, lui pr=C3=AAtent
+                      leurs voix.<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">=C2=A0<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">Regarde
+                      et entends,<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">Car
+                      le monde actuel a besoin de retrouver ce =C2=AB regar=
+d
+                      du c=C5=93ur =C2=BB,<span></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">Et
+                      de cueillir ces fleurs de l=E2=80=99esp=C3=A9rance<sp=
+an></span></span></p>
+                  <p style=3D"margin:0cm 0cm 0.0001pt;line-height:12pt;font=
+-size:10pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&qu=
+ot;Trebuchet MS&quot;;color:rgb(0,0,153)">Pour
+                      mieux respirer et pour mieux vivre.<span></span></spa=
+n></p>
+                  <p style=3D"margin-right:0cm;margin-left:0cm;font-size:10=
+pt;font-family:Times"><span style=3D"font-size:12pt;font-family:&quot;Trebu=
+chet MS&quot;;color:rgb(0,0,153)">=C2=A0</span><i><span style=3D"font-size:=
+11pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)">Jeannette,
+                        Petite Soeur de l=E2=80=99Assomption, =C3=A0 partir=
+ d=E2=80=99une
+                        pri=C3=A8re de Saint Fran=C3=A7ois d=E2=80=99Assise=
+.</span></i><span style=3D"font-size:11pt"><span></span></span></p>
+                  <h2 style=3D"text-align:center;margin-right:0cm;margin-le=
+ft:0cm;font-size:18pt;font-family:Times;font-weight:bold" align=3D"center">=
+<span style=3D"font-size:10pt;font-family:&quot;Trebuchet MS&quot;;color:rg=
+b(0,0,153)"><span>=C2=A0</span></span></h2>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;back=
+ground:rgb(255,153,0);padding:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%" v=
+align=3D"top">
+                  <p style=3D"text-align:justify;margin:0cm 0cm 0.0001pt;fo=
+nt-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;"><s=
+pan style=3D"font-size:10pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(=
+0,0,153)">Retrouvez
+                      plus d=E2=80=99information sur le </span><a href=3D"h=
+ttp://www.acat-belgique-francophone.be/" style=3D"color:blue;text-decoratio=
+n:underline" target=3D"_blank"><span style=3D"color:navy;text-decoration:un=
+derline"><span style=3D"font-size:10pt;font-family:&quot;Trebuchet MS&quot;=
+;color:rgb(0,0,153)" lang=3D"UZ-CYR">site Internet de l=E2=80=99ACAT</span>=
+</span></a><span style=3D"color:navy;text-decoration:underline"><span style=
+=3D"font-size:10pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(0,0,153)"=
+ lang=3D"UZ-CYR"><span></span></span></span></p>
+                  <p style=3D"text-align:justify;margin:0cm 0cm 0.0001pt;fo=
+nt-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;"><s=
+pan style=3D"font-size:10pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(=
+0,0,153)">Suivez
+                      et =C2=AB=C2=A0soutenez=C2=A0=C2=BB </span><a href=3D=
+"https://www.facebook.com/contact.acatbef/" style=3D"color:blue;text-decora=
+tion:underline" target=3D"_blank"><span style=3D"color:navy;text-decoration=
+:underline"><span style=3D"font-size:10pt;font-family:&quot;Trebuchet MS&qu=
+ot;;color:rgb(0,0,153)" lang=3D"UZ-CYR">notre page Facebook</span></span></=
+a><span style=3D"font-size:10pt;font-family:&quot;Trebuchet MS&quot;"><span=
+></span></span></p>
+                  <p style=3D"text-align:justify;margin:0cm 0cm 0.0001pt;fo=
+nt-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif&quot;"><s=
+pan style=3D"font-size:10pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(=
+0,0,153)">Soutenez
+                      l=E2=80=99ACAT en faisant un don=C2=A0: CCP: BE07 776=
+5 9456
+                      8166<span></span></span></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;padd=
+ing:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%" valign=3D"top">
+                  <p class=3D"MsoNormal" style=3D"text-align:justify;margin=
+:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&=
+quot;serif&quot;"><i><span style=3D"font-size:9pt;font-family:&quot;Trebuch=
+et MS&quot;;color:rgb(0,0,153)">Cette
+                        lettre vous est adress=C3=A9e en tant que membre ou
+                        sympathisant de l=E2=80=99ACAT Belgique.<span></spa=
+n></span></i></p>
+                  <p class=3D"MsoNormal" style=3D"text-align:justify;margin=
+:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&=
+quot;serif&quot;"><i><span style=3D"font-size:9pt;font-family:&quot;Trebuch=
+et MS&quot;;color:rgb(0,0,153)">Si
+                        vous ne souhaitez plus la recevoir, merci de
+                        nous le signaler en r=C3=A9pondant =C3=A0 ce messag=
+e.<span></span></span></i></p>
+                </td>
+              </tr>
+              <tr>
+                <td style=3D"width:100%;border-color:currentcolor rgb(0,0,1=
+) rgb(0,0,1);border-style:none solid solid;border-width:medium 1pt 1pt;padd=
+ing:2.75pt 2.75pt 2.75pt 2.55pt" width=3D"100%" valign=3D"top">
+                  <p class=3D"MsoNormal" style=3D"text-align:justify;margin=
+:0cm 0cm 0.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&=
+quot;serif&quot;"><span style=3D"font-size:9pt;font-family:&quot;Trebuchet =
+MS&quot;;color:rgb(0,0,153)">Action
+                      des Chr=C3=A9tiens pour l=E2=80=99Abolition de la Tor=
+ture, Rue
+                      Brogniez 44, 1070 Bruxelles<span></span></span></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class=3D"MsoNormal" style=3D"text-align:justify;margin:0cm 0cm 0=
+.0001pt;font-size:12pt;font-family:&quot;Liberation Serif&quot;,&quot;serif=
+&quot;"><span style=3D"font-size:9pt;font-family:&quot;Trebuchet MS&quot;">=
+<span>=C2=A0</span></span></p>
+        <div>
+          <div dir=3D"ltr" class=3D"gmail_signature" data-smartmail=3D"gmai=
+l_signature">
+            <div dir=3D"ltr">
+              <div>
+                <div dir=3D"ltr">
+                  <div>
+                    <div dir=3D"ltr">
+                      <div>
+                        <div dir=3D"ltr">
+                          <div>
+                            <div dir=3D"ltr">
+                              <div>
+                                <div dir=3D"ltr">
+                                  <div>
+                                    <div dir=3D"ltr"><br>
+                                      <p class=3D"MsoNormal" style=3D"text-=
+align:justify;margin:0cm 0cm 0.0001pt;font-size:12pt;font-family:Cambria"><=
+span style=3D"font-size:8pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(=
+23,54,93)">ACAT-
+                                          Belgique/ Belgi=C3=AB/ Belgium
+                                          Action des Chr=C3=A9tiens
+                                          pour l&#39;Abolition de la
+                                          Torture, Rue Brogniez 44,1070
+                                          Bruxelles.</span></p>
+                                      <p class=3D"MsoNormal" style=3D"text-=
+align:justify;margin:0cm 0cm 0.0001pt;font-size:12pt;font-family:Cambria"><=
+span style=3D"font-size:8pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(=
+23,54,93)"><a href=3D"http://www.acat-belgique-francophone.be/" target=3D"_=
+blank"><span style=3D"color:rgb(23,54,93)">=C2=A0www.acat.be</span></a>
+                                        </span></p>
+                                      <p class=3D"MsoNormal" style=3D"text-=
+align:justify;margin:0cm 0cm 0.0001pt;font-size:12pt;font-family:Cambria"><=
+span style=3D"font-size:8pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(=
+23,54,93)">=C2=A0</span></p>
+                                      <p class=3D"MsoNormal" style=3D"margi=
+n:0cm 0cm 0.0001pt 30pt;text-align:justify;font-size:12pt;font-family:Cambr=
+ia"><i><span style=3D"font-size:7.5pt;font-family:&quot;Trebuchet MS&quot;;=
+color:rgb(23,54,93)">Ce
+                                            mail vous est adress=C3=A9 en
+                                            tant que membre ou
+                                            sympathisant
+                                            de l=E2=80=99ACAT Belgique. Si =
+vous
+                                            ne souhaitez plus le
+                                            recevoir, merci de
+                                            nous le signaler en
+                                            r=C3=A9pondant =C3=A0 ce messag=
+e.
+                                            (R=C3=A8glement europ=C3=A9en n=
+</span></i><i><span style=3D"font-size:7.5pt;font-family:&quot;Times New Ro=
+man&quot;;color:rgb(23,54,93)">=E1=B5=92</span></i><i><span style=3D"font-s=
+ize:7.5pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(23,54,93)">2016/67=
+9
+                                            sur la Protection des
+                                            donn=C3=A9es). </span></i><span=
+ style=3D"font-size:7.5pt;font-family:&quot;Trebuchet MS&quot;;color:rgb(23=
+,54,93)"></span></p>
+                                      <span></span></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </blockquote>
+  </div>
+
+</div></div>
+
+--00000000000024e3df060f241d1e--
